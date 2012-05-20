@@ -14,7 +14,7 @@ PORT ?= /dev/tty.usbmodem00036221
 AVRDUDE=avrdude
 
 TARGET=main
-OBJECT_FILES=main.o calibrate-for-line.o
+OBJECT_FILES=main.o calibrate-for-line.o line-follower.o
 
 all: $(TARGET).hex
 

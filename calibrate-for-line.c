@@ -22,7 +22,7 @@ void calibrate_for_line(){
 	set_motors(0,0);
 }
 
-void read_and_display_sensor_data(){
+unsigned int read_and_display_sensor_data(){
 	unsigned int values[NUMBER_OF_SENSORS];
 	unsigned int position = read_line(values,IR_EMITTERS_ON);
 	//print the position on the top line and the values on the 2nd line
@@ -35,4 +35,5 @@ void read_and_display_sensor_data(){
 		char c = displayable[values[i]/101];
 		print_character(c);
 	}
+	return position;
 }
