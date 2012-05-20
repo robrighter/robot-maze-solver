@@ -41,9 +41,13 @@ int get_value_within_max(int value, int max){
 }
 
 void set_motors_by_position(int speed, unsigned int position){
-	//Calculate the PID
+	//Calculate the PID.
+	
+	//'P' = make 0 be on the line, 2000 is far to right, -2000 is far left
 	int proportional = ((int)position) - 2000;
+	//'I' = Aggregate of all 'P'
 	integral += proportional;
+	//'D' = Delta 'P'
 	int derivative = proportional - last_proportional;
 	
 	//store off the proportional for future iteration
