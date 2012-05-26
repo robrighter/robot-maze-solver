@@ -15,17 +15,17 @@ int integral = 0;
 
 //use these functions to tune the constants
 int apply_kp(int p){
-	return p/2;
+	return p/22;
 }
 
 int apply_kd(int d){
 	//For initial tuning we set the constant to 0
-	return 0*d;
+	return d/4;
 }
 
 int apply_ki(int i){
 	//For initial tuning we set the constant to 0
-	return 0*i;
+	return i/20000;
 }
 
 int get_value_within_max(int value, int max){
@@ -63,7 +63,7 @@ void set_motors_by_position(int speed, unsigned int position){
 	d_speed = get_value_within_max(d_speed, speed);
 	
 	//set the motors
-	(d_speed< 0)?set_motors(d_speed,speed):set_motors(speed,d_speed);
+	(d_speed< 0)?set_motors(speed+d_speed,speed):set_motors(speed,speed-d_speed);
 }
 
 void reset_line_follower(){

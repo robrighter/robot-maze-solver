@@ -20,7 +20,7 @@ int main()
 		//just follow the line for a little while while testing
 		int counter = 0;
 		while(counter++ < 330){
-			set_motors_by_position(30,read_and_display_sensor_data());
+			set_motors_by_position(110,read_and_display_sensor_data());
 			delay_ms(100);	
 		}
 		set_motors(0,0);
