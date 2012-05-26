@@ -15,17 +15,17 @@ int integral = 0;
 
 //use these functions to tune the constants
 int apply_kp(int p){
-	return p/22;
+	return p/10;
 }
 
 int apply_kd(int d){
 	//For initial tuning we set the constant to 0
-	return d/4;
+	return d;
 }
 
 int apply_ki(int i){
 	//For initial tuning we set the constant to 0
-	return i/20000;
+	return i/6000;
 }
 
 int get_value_within_max(int value, int max){

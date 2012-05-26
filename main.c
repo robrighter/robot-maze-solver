@@ -11,6 +11,7 @@ int main()
 	while(1){
 		while(!button_is_pressed(BUTTON_B)){}
 		wait_for_button_release(BUTTON_B);
+		delay_ms(1000);
 		
 		pololu_3pi_init(2000);
 		calibrate_for_line();
@@ -18,10 +19,8 @@ int main()
 		reset_line_follower();
 		
 		//just follow the line for a little while while testing
-		int counter = 0;
-		while(counter++ < 330){
-			set_motors_by_position(110,read_and_display_sensor_data());
-			delay_ms(100);	
+		while(1){
+			set_motors_by_position(140,read_and_display_sensor_data());	
 		}
 		set_motors(0,0);
 	}
