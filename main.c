@@ -3,6 +3,7 @@
 #include <pololu/3pi.h>
 #include "calibrate-for-line.h"
 #include "line-follower.h"
+#include "path-chooser.h"
 
 int main()
 {
@@ -20,7 +21,11 @@ int main()
 		
 		//just follow the line for a little while while testing
 		while(1){
-			set_motors_by_position(140,read_and_display_sensor_data());	
+			set_motors_by_position(140,read_and_display_sensor_data());
+			//drop out of the line follower since we are at a junction
+			enum Direction to_turn = make_path_choice(read_junction_type());
+			turn(to_turn);
+
 		}
 		set_motors(0,0);
 	}
